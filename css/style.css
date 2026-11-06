@@ -35,10 +35,7 @@ img { display: block; }
 }
 
 #header {
-    width: auto;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding: 0.75rem max(1rem, calc(50vw - 500px));
+    padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -187,10 +184,7 @@ body.menu-open .menu-backdrop { display: block; }
 }
 
 #footer {
-    width: auto;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    padding: 1rem max(1rem, calc(50vw - 500px));
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
