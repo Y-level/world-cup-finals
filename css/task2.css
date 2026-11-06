@@ -1,0 +1,199 @@
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.picture {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #ffffff 0%, #e8f5d0 42%, #4a8f2e 100%);
+    border: 4px solid #000;
+    will-change: transform;
+}
+
+.boy {
+    position: absolute;
+    bottom: 16px;
+    left: 40px;
+    height: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.boy2,
+.boy3 {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.ball {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: url('../images/ball.png') no-repeat center / contain;
+    offset-path: path("M 180,180 C 180,190 170,190 150,190 C 100,190 20,190 20,170 C 20,150 20,100 20,90 C 20,80 20,65 20,60 C 20,60 40,60 60,60 C 100,60 150,60 150,80 C 150,100 180,140 170,161");
+    offset-distance: 0%;
+    offset-rotate: 0deg;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.box {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 60px;
+    height: 60px;
+    background: url('../images/box.png') no-repeat center / contain;
+    offset-path: path("M 200,100 C 190,120 150,150 125,161");
+    offset-distance: 0%;
+    offset-rotate: 0deg;
+    opacity: 0;
+    z-index: 1;
+}
+
+.hint,
+.hint-brick {
+    position: absolute;
+    color: #000;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.hint {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hint-brick {
+    top: 40px;
+    right: 70px;
+    transform-origin: top right;
+    transform: rotate(-45deg);
+    will-change: opacity;
+    backface-visibility: hidden;
+}
+
+.picture:hover .ball {
+    opacity: 1;
+}
+
+.picture:hover .box {
+    opacity: 1;
+}
+
+.picture:hover .hint {
+    opacity: 1;
+}
+
+.picture:hover .boy {
+    opacity: 0;
+}
+
+.picture:hover .boy2 {
+    opacity: 1;
+}
+
+.picture:active .ball,
+.picture:active .hint {
+    opacity: 0;
+}
+
+.picture:active .hint-brick {
+    opacity: 1;
+}
+
+.picture:active .boy {
+    opacity: 0;
+}
+
+.picture:active .boy3 {
+    opacity: 1;
+}
+
+.picture:active .box {
+    offset-path: path("M 125,161 C 132,150 138,165 145,150 C 152,135 158,155 165,130 C 172,105 178,125 185,95 C 192,85 200,80 220,75");
+    animation: fly-box 1.5s forwards ease-in-out;
+}
+
+.picture:active {
+    animation: shake-updown 0.4s ease-in-out 1.5s infinite;
+}
+
+@keyframes fly-ball {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+@keyframes drop-box {
+    0% {
+        offset-distance: 0%;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        offset-distance: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes fly-box {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+@keyframes shake-updown {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.picture:not(:active):hover .ball {
+    animation-name: fly-ball, spin;
+    animation-duration: 2s, 0.6s;
+    animation-timing-function: ease-in-out, linear;
+    animation-fill-mode: forwards, none;
+    animation-iteration-count: 1, infinite;
+    animation-play-state: running, paused;
+}
+
+.picture:not(:active):hover .box {
+    animation-name: drop-box, spin;
+    animation-duration: 1s, 0.6s;
+    animation-timing-function: ease-in-out, linear;
+    animation-fill-mode: forwards, none;
+    animation-iteration-count: 1, infinite;
+    animation-play-state: running, paused;
+}
+
+
+.picture:not(:active):hover .ball:hover,
+.picture:not(:active):hover .box:hover {
+    animation-play-state: running, running;
+}

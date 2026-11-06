@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Задание 3 - Викторина</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/logo-football.css">
+    <link rel="stylesheet" href="../css/quiz.css">
+
+    <script src="../js/quiz.js" defer></script>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <header id="header">
+
+            <div class="football-logo">
+
+                <div class="trophy">
+                    <div class="cup"></div>
+                    <div class="stem"></div>
+                    <div class="base"></div>
+                </div>
+
+                <span class="football-logo__number">XXI</span>
+
+            </div>
+
+            <div class="header-text">
+                <h1>Финалы ЧМ</h1>
+                <p>Чемпионаты мира по футболу в XXI веке</p>
+            </div>
+
+        </header>
+
+
+        <div id="layout">
+
+            <nav id="menu"></nav>
+
+            <main id="content">
+
+                <article class="quiz-article">
+
+                    <h2>Задание 3. Викторина</h2>
+
+                    <p>
+                        Выберите один из вариантов ответа. После выбора ответа
+                        через пару секунд блоки ответов начнут по очереди уезжать
+                        вниз, а в блоке вопроса появится маркер.
+                    </p>
+
+                    <div id="quiz-status" class="quiz-status" aria-live="polite"></div>
+
+                    <div id="quiz-area" class="quiz-area"></div>
+
+                    <div id="quiz-stats" class="quiz-stats" aria-live="polite"></div>
+
+                </article>
+
+            </main>
+
+        </div>
+
+
+        <footer id="footer">
+            <p>2026</p>
+        </footer>
+
+    </div>
+    <script src="../js/menu.js" defer></script>
+</body>
+</html>

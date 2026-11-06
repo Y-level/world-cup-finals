@@ -1,0 +1,83 @@
+.football-logo {
+    font-size: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.trophy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 2.5em;
+    flex-shrink: 0;
+}
+
+.cup {
+    width: 10em;
+    height: 8em;
+    background: #d4af37;
+    border-bottom-left-radius: 5em;
+    border-bottom-right-radius: 5em;
+    position: relative;
+    z-index: 1;
+}
+
+.cup::before,
+.cup::after {
+    content: "";
+    position: absolute;
+    top: 1.2em;
+    width: 3em;
+    height: 4.5em;
+    border: 0.7em solid #d4af37;
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+.cup::before {
+    left: -2.5em;
+    border-right: none;
+    border-radius: 2em 0 0 2em;
+}
+
+.cup::after {
+    right: -2.5em;
+    border-left: none;
+    border-radius: 0 2em 2em 0;
+}
+
+.stem {
+    width: 2.2em;
+    height: 3.5em;
+    background: #d4af37;
+    margin-top: -0.3em;
+}
+
+.base {
+    width: 8.5em;
+    height: 2em;
+    background: #333333;
+    border-radius: 0.4em;
+}
+
+.football-logo__number {
+    font-size: 7em;
+    font-weight: bold;
+    color: #d4af37;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+}
+
+@media (max-width: 700px) {
+    .football-logo {
+        font-size: 3px;
+    }
+}
+
+@media (max-width: 400px) {
+    .football-logo {
+        font-size: 3px;
+    }
+}

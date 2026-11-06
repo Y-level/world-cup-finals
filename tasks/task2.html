@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Задание 2 - Анимированный ролик</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/logo-football.css">
+    <link rel="stylesheet" href="../css/task2.css">
+</head>
+
+<body>
+
+    <div id="container">
+
+        <header id="header">
+
+            <div class="football-logo">
+
+                <div class="trophy">
+                    <div class="cup"></div>
+                    <div class="stem"></div>
+                    <div class="base"></div>
+                </div>
+
+                <span class="football-logo__number">XXI</span>
+
+            </div>
+
+            <div class="header-text">
+                <h1>Финалы ЧМ</h1>
+                <p>Чемпионаты мира по футболу в XXI веке</p>
+            </div>
+
+        </header>
+
+
+        <div id="layout">
+
+            <nav id="menu"></nav>
+
+            <main id="content">
+
+                <article>
+
+                    <h2>Задание 2. Анимированный ролик</h2>
+
+                    <p>
+                        В рамках второго задания необходимо создать анимированный
+                        ролик с базовым размером 200 x 200 пикселей.
+                    </p>
+
+                    <p>
+                        При наведении курсора на изображение появляется мяч,
+                        который облетает мальчика по часовой стрелке и
+                        останавливается справа от него на уровне ног.
+                    </p>
+
+                    <figure>
+
+                        <div class="picture">
+
+                            <img class="boy" src="../images/boy1.png" alt="Мальчик">
+
+                            <img class="boy boy2" src="../images/boy2.png" alt="Мальчик">
+
+                            <img class="boy boy3" src="../images/boy3.png" alt="Мальчик">
+
+                            <div class="ball"></div>
+
+                            <div class="box"></div>
+
+                            <div class="hint">Где мяч?</div>
+
+                            <div class="hint-brick">Это кирпич!</div>
+
+                        </div>
+
+                        <figcaption>
+                            Рисунок 1 - анимированный ролик
+                        </figcaption>
+
+                    </figure>
+
+                    <p>
+                        Анимация реализована средствами CSS
+                        с использованием свойства offset-path.
+                    </p>
+
+                </article>
+
+            </main>
+
+        </div>
+
+
+        <footer id="footer">
+
+            <p>
+                2026
+            </p>
+
+        </footer>
+
+    </div>
+    <script src="../js/menu.js" defer></script>
+</body>
+</html>
