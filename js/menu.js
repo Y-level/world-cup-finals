@@ -16,8 +16,9 @@
     const taskPages = ['task1.html', 'task2.html', 'task3.html'];
     const base = taskPages.includes(page) ? '../' : '';
 
-    const h2 = document.createElement('h2');
-    h2.textContent = 'Меню';
+    const title = document.createElement('p');
+    title.className = 'menu-title';
+    title.textContent = 'Меню';
 
     const ul = document.createElement('ul');
 
@@ -39,6 +40,6 @@
     });
 
     nav.innerHTML = '';
-    nav.appendChild(h2);
+    nav.appendChild(title);
     nav.appendChild(ul);
 })();
