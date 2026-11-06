@@ -1,5 +1,5 @@
 .football-logo {
-    font-size: 5px;
+    font-size: 0.3125rem;
     display: inline-flex;
     align-items: center;
     gap: 2em;
@@ -70,8 +70,8 @@
     line-height: 1;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 25em) {
     .football-logo {
-        font-size: 3px;
+        font-size: 0.1875rem;
     }
 }
