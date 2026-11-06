@@ -32,7 +32,6 @@
         const fileName = item.href.split('/').pop();
         if (fileName === page) {
             a.classList.add('active');
-            a.setAttribute('aria-current', 'page');
         }
 
         li.appendChild(a);
@@ -42,4 +41,44 @@
     nav.innerHTML = '';
     nav.appendChild(title);
     nav.appendChild(ul);
+
+    const toggle = document.querySelector('.menu-toggle');
+    if (!toggle) return;
+
+    const backdrop = document.createElement('div');
+    backdrop.className = 'menu-backdrop';
+    document.body.appendChild(backdrop);
+
+    function openMenu() {
+        nav.classList.add('open');
+        document.body.classList.add('menu-open');
+    }
+
+    function closeMenu() {
+        nav.classList.remove('open');
+        document.body.classList.remove('menu-open');
+    }
+
+    toggle.addEventListener('click', () => {
+        if (nav.classList.contains('open')) closeMenu();
+        else openMenu();
+    });
+
+    backdrop.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && nav.classList.contains('open')) {
+            closeMenu();
+        }
+    });
+
+    nav.addEventListener('click', e => {
+        if (e.target.closest('a')) closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 900 && nav.classList.contains('open')) {
+            closeMenu();
+        }
+    });
 })();
