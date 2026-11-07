@@ -29,15 +29,14 @@
     flex-direction: column;
 }
 
-.quiz-item {
+#content .quiz-item {
     display: none;
     margin-bottom: 20px;
 }
 
-.quiz-item:first-child {
+#content .quiz-item:first-child {
     display: block;
 }
-
 
 .quiz-row {
     display: flex;
