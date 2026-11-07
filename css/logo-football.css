@@ -1,8 +1,9 @@
 .football-logo {
-    font-size: 0.3125rem;
+    --logo-scale: 0.65;
+
     display: inline-flex;
     align-items: center;
-    gap: 2em;
+    gap: calc(10px * var(--logo-scale));
 }
 
 .trophy {
@@ -10,16 +11,16 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    padding: 0 2.5em;
+    padding: 0 calc(12px * var(--logo-scale));
     flex-shrink: 0;
 }
 
 .cup {
-    width: 10em;
-    height: 8em;
+    width: calc(50px * var(--logo-scale));
+    height: calc(40px * var(--logo-scale));
     background: #d4af37;
-    border-bottom-left-radius: 5em;
-    border-bottom-right-radius: 5em;
+    border-bottom-left-radius: calc(25px * var(--logo-scale));
+    border-bottom-right-radius: calc(25px * var(--logo-scale));
     position: relative;
     z-index: 1;
 }
@@ -28,50 +29,56 @@
 .cup::after {
     content: "";
     position: absolute;
-    top: 1.2em;
-    width: 3em;
-    height: 4.5em;
-    border: 0.7em solid #d4af37;
+    top: calc(6px * var(--logo-scale));
+    width: calc(15px * var(--logo-scale));
+    height: calc(22px * var(--logo-scale));
+    border: calc(3px * var(--logo-scale)) solid #d4af37;
     box-sizing: border-box;
     z-index: -1;
 }
 
 .cup::before {
-    left: -2.5em;
+    left: calc(-12px * var(--logo-scale));
     border-right: none;
-    border-radius: 2em 0 0 2em;
+    border-radius: calc(10px * var(--logo-scale)) 0 0 calc(10px * var(--logo-scale));
 }
 
 .cup::after {
-    right: -2.5em;
+    right: calc(-12px * var(--logo-scale));
     border-left: none;
-    border-radius: 0 2em 2em 0;
+    border-radius: 0 calc(10px * var(--logo-scale)) calc(10px * var(--logo-scale)) 0;
 }
 
 .stem {
-    width: 2.2em;
-    height: 3.5em;
+    width: calc(11px * var(--logo-scale));
+    height: calc(18px * var(--logo-scale));
     background: #d4af37;
-    margin-top: -0.3em;
+    margin-top: calc(-2px * var(--logo-scale));
 }
 
 .base {
-    width: 8.5em;
-    height: 2em;
+    width: calc(42px * var(--logo-scale));
+    height: calc(10px * var(--logo-scale));
     background: #333333;
-    border-radius: 0.4em;
+    border-radius: calc(2px * var(--logo-scale));
 }
 
 .football-logo__number {
-    font-size: 7em;
+    font-size: calc(35px * var(--logo-scale));
     font-weight: bold;
     color: #d4af37;
     font-family: Arial, sans-serif;
     line-height: 1;
 }
 
-@media (max-width: 25em) {
+@media (min-width: 37.5em) {
     .football-logo {
-        font-size: 0.1875rem;
+        --logo-scale: 0.8;
+    }
+}
+
+@media (min-width: 56.25em) {
+    .football-logo {
+        --logo-scale: 1;
     }
 }
