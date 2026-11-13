@@ -27,6 +27,7 @@ function reset() {
     outputText.innerHTML = '';
     items = [];
     zIndex = 1;
+    idCounter = 0;
     wordColors = {};
 }
 
@@ -75,8 +76,6 @@ function parse() {
             baseColor,
             currentColor: null,
             inBlock1: false,
-            x: 0,
-            y: 0,
             el: null
         };
 
@@ -122,13 +121,12 @@ function startDrag(e) {
                 item.currentColor = randomFrom(movePalette);
                 el.style.background = item.currentColor;
                 el.style.outline = 'none';
-                el.style.position = 'absolute';
                 el.style.zIndex = String(++zIndex);
                 block1.appendChild(el);
             }
         }
 
-        if (!moved || !item.inBlock1) return;
+        if (!moved) return;
 
         const b1Rect = block1.getBoundingClientRect();
         let left = ev.clientX - b1Rect.left - offsetX;
@@ -137,8 +135,6 @@ function startDrag(e) {
         top = Math.max(0, Math.min(top, block1.clientHeight - el.offsetHeight));
         el.style.left = left + 'px';
         el.style.top = top + 'px';
-        item.x = left;
-        item.y = top;
     }
 
     function up(ev) {
@@ -154,7 +150,7 @@ function startDrag(e) {
                     wordColors[item.value] = getRandomColor();
                 }
 
-                if (outputText.childNodes.length > 0) {
+                if (outputText.textContent.length > 0) {
                     outputText.appendChild(document.createTextNode(' '));
                 }
 
@@ -166,17 +162,15 @@ function startDrag(e) {
             return;
         }
 
-        if (item.inBlock1) {
-            const b2Rect = block2.getBoundingClientRect();
-            const overBlock2 =
-                ev.clientX >= b2Rect.left &&
-                ev.clientX <= b2Rect.right &&
-                ev.clientY >= b2Rect.top &&
-                ev.clientY <= b2Rect.bottom;
+        const b2Rect = block2.getBoundingClientRect();
+        const overBlock2 =
+            ev.clientX >= b2Rect.left &&
+            ev.clientX <= b2Rect.right &&
+            ev.clientY >= b2Rect.top &&
+            ev.clientY <= b2Rect.bottom;
 
-            if (overBlock2) {
-                returnToBlock2(item);
-            }
+        if (overBlock2) {
+            returnToBlock2(item);
         }
     }
 

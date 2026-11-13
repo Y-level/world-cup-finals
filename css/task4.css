@@ -104,10 +104,18 @@
     width: 7.5rem;
     max-width: 100%;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .task4-pill__key {
     font-weight: bold;
+}
+
+.task4-pill__value {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #block1 .task4-pill {
