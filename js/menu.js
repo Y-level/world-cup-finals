@@ -6,6 +6,7 @@
         { href: 'tasks/task1.html', text: 'Задание 1' },
         { href: 'tasks/task2.html', text: 'Задание 2' },
         { href: 'tasks/task3.html', text: 'Задание 3' },
+        { href: 'tasks/task4.html', text: 'Задание 4' },
         { href: 'coursework.html',  text: 'Курсовая работа' }
     ];
 
@@ -13,7 +14,7 @@
     if (!nav) return;
 
     const page = location.pathname.split('/').pop() || 'index.html';
-    const taskPages = ['task1.html', 'task2.html', 'task3.html'];
+    const taskPages = ['task1.html', 'task2.html', 'task3.html', 'task4.html'];
     const base = taskPages.includes(page) ? '../' : '';
 
     const title = document.createElement('p');
